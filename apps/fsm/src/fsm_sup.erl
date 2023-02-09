@@ -29,8 +29,7 @@ init([]) ->
     SupFlags = #{strategy => one_for_all,
                  intensity => 0,
                  period => 1},
-    Worker = {fsm_worker, {fsm_worker, start_link, []},
-        permanent, 1000, worker, [fsm_worker]},
-    {ok, {SupFlags, Worker}}.
+    Worker = {fsm_worker, {fsm_worker, start_link, []}, permanent, 1000, worker, [fsm_worker]},
+    {ok, {SupFlags, [Worker]}}.
 
 %% internal functions
